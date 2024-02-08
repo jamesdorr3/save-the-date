@@ -67,7 +67,7 @@ const SaveTheDate = () => {
           <span className="std__countdown-number std__countdown-days">{days}</span>
           <span className="std__countdown-word">
             <span className="english-opt">days,</span>
-            <span className="spanish-opt">dias,</span>
+            <span className="spanish-opt">días,</span>
           </span>
           <span className="std__countdown-number std__countdown-number--ghost-width-container std__countdown-hours">
             <span className="std__countdown-number--ghost-max-width">00</span>
