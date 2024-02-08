@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 import "./save-the-date.scss";
 
@@ -12,18 +12,7 @@ const SaveTheDate = () => {
   const [minutes, setMinutes] = useState('00');
   const [seconds, setSeconds] = useState('00');
 
-  useEffect(() => {
-    setVariant();
-
-    countdownInterval();
-  }, []);
-
-  useEffect(() => {
-    const interval = setInterval(countdownInterval, 50);
-    return () => clearInterval(interval);
-  }, [hours, minutes, seconds]);
-
-  const msToCountdown = (duration) => {
+  const msToCountdown = useCallback((duration) => {
     let newSeconds = Math.floor((duration / 1000) % 60),
       newMinutes = Math.floor((duration / (1000 * 60)) % 60),
       newHours = Math.floor((duration / (1000 * 60 * 60)) % 24),
@@ -37,13 +26,24 @@ const SaveTheDate = () => {
     if (newHours !== hours) setHours(newHours);
     if (newMinutes !== minutes) setMinutes(newMinutes);
     if (newSeconds !== seconds) setSeconds(newSeconds);
-  };
+  }, [days, hours, minutes, seconds]);
 
-  const countdownInterval = () => {
+  const countdownInterval = useCallback(() => {
     const now = new Date();
     const msToWedding = weddingDate - now;
     msToCountdown(msToWedding);
-  };
+  }, [msToCountdown]);
+
+  useEffect(() => {
+    setVariant();
+
+    countdownInterval();
+  }, [countdownInterval]);
+
+  useEffect(() => {
+    const interval = setInterval(countdownInterval, 50);
+    return () => clearInterval(interval);
+  }, [countdownInterval, hours, minutes, seconds]);
 
   const setVariant = () => {
     const search = window.location.search;
