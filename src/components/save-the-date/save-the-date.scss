@@ -1,0 +1,243 @@
+$bp-tablet-min: 37.5rem;
+$bp-lg-tablet-min: 56.25rem;
+
+body {
+  margin: 0;
+}
+
+@keyframes background-color-change {
+  0% {
+    background-color: #f3f0f0;
+  }
+  25% {
+    background-color: #f5ece4;
+  }
+  50% {
+    background-color: #e4e7e5;
+  }
+  75% {
+    background-color: #f8eae4;
+  }
+}
+
+.std {
+  background: rgb(240, 240, 240);
+  box-sizing: border-box;
+  color: rgb(29, 22, 16);
+  font-family: dancing, cursive;
+  font-weight: bold;
+  padding: 1.25rem;
+  min-height: 100svh;
+
+  @media screen and (min-width: $bp-tablet-min) {
+    padding: 2rem;
+  }
+
+  @media screen and (min-width: $bp-lg-tablet-min) {
+    padding: 3rem;
+  }
+
+  &__bg {
+    align-items: center;
+    animation-name: background-color-change;
+    animation-duration: 10s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+    background-color: #f3f0f0;
+    background-image: url("https://clipart-library.com/img/1138434.png");
+    background-size: 44vw;
+    background-repeat: no-repeat;
+    background-position-x: 2vh;
+    background-position-y: 2vh;
+    border: 1px solid rgb(29, 22, 16);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1rem 16vw;
+    text-align: center;
+
+    @media screen and (min-width: $bp-tablet-min) {
+      background-size: 16rem;
+      padding: 1.5rem 5.5rem;
+    }
+
+    @media screen and (min-width: $bp-lg-tablet-min) {
+      margin: 0 auto;
+      max-width: 50.25rem;
+    }
+  }
+
+  &__date {
+    font-size: 2rem;
+    margin-top: 5rem;
+
+    @media screen and (min-width: $bp-tablet-min) {
+      font-size: 2.5rem;
+      margin-top: 6rem;
+    }
+
+    @media screen and (min-width: $bp-lg-tablet-min) {
+      font-size: 3.5rem;
+      margin-top: 5rem;
+    }
+  }
+
+  /* COUNTDOWN START */
+  &__countdown {
+    font-size: 1.25rem;
+    margin: 2rem 0;
+    text-align: center;
+
+    @media screen and (min-width: $bp-tablet-min) {
+      font-size: 1.75rem;
+    }
+
+    @media screen and (min-width: $bp-lg-tablet-min) {
+      font-size: 2rem;
+    }
+  }
+
+  &__countdown-number,
+  &__countdown-word {
+    display: inline-block;
+    text-align: left;
+  }
+
+  &__countdown-number {
+    @media screen and (min-width: $bp-lg-tablet-min) {
+      margin-left: 0.5rem;
+    }
+  }
+
+  &__countdown-number--ghost-width-container {
+    position: relative;
+  }
+
+  &__countdown-number--ghost-max-width {
+    opacity: 0;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  &__countdown-number--current-number {
+    left: 0;
+    position: absolute;
+  }
+
+  &__countdown-word {
+    margin-left: 0.5rem;
+  }
+
+  &__countdown-hours {
+    // min-width: 2rem;
+    margin-left: 0.5rem;
+
+    @media screen and (min-width: $bp-tablet-min) {
+      // min-width: 2.5rem;
+    }
+
+    @media screen and (min-width: $bp-lg-tablet-min) {
+      // min-width: 3rem;
+    }
+  }
+
+  &__countdown-br {
+    @media screen and (min-width: $bp-lg-tablet-min) {
+      display: none;
+    }
+  }
+
+  &__countdown-minutes,
+  &__countdown-seconds {
+    // min-width: 1.77rem;
+
+    @media screen and (min-width: $bp-tablet-min) {
+      // min-width: 2.27rem;
+    }
+
+    @media screen and (min-width: $bp-lg-tablet-min) {
+      // min-width: 2.77rem;
+    }
+  }
+
+  &__countdown-seconds {
+    margin-left: 0.5rem;
+  }
+  /* COUNTDOWN END */
+
+  &__location {
+    font-size: 1.25rem;
+
+    @media screen and (min-width: $bp-tablet-min) {
+      font-size: 1.5rem;
+    }
+
+    @media screen and (min-width: $bp-lg-tablet-min) {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__names {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    text-align: center;
+
+    @media screen and (min-width: $bp-tablet-min) {
+      font-size: 1.75rem;
+    }
+  }
+
+  &__name {
+    display: block;
+
+    @media screen and (min-width: $bp-tablet-min) {
+      display: inline-block;
+    }
+  }
+
+  &__names--and {
+    @media screen and (min-width: $bp-tablet-min) {
+      margin: 0 0.5rem;
+    }
+  }
+
+  &__alternatives {
+    font-size: 1rem;
+    margin: 1rem 0;
+    text-align: center;
+
+    @media screen and (min-width: $bp-tablet-min) {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+/* LANGUAGES */
+
+.spanish-opt {
+  display: none;
+}
+
+.spanish {
+  .spanish-opt {
+    display: unset;
+  }
+  
+  .english-opt {
+    display: none;
+  }
+}
+
+
+.spanish .std__names,
+.francisco-first .std__names {
+  display: flex;
+  flex-direction: column-reverse;
+  column-gap: 0.5rem;
+
+  @media screen and (min-width: $bp-tablet-min) {
+    flex-direction: row-reverse;
+  }
+}
