@@ -41,7 +41,7 @@ const SaveTheDate = () => {
   }, [countdownInterval]);
 
   useEffect(() => {
-    const interval = setInterval(countdownInterval, 50);
+    const interval = setInterval(countdownInterval, 1000);
     return () => clearInterval(interval);
   }, [countdownInterval, hours, minutes, seconds]);
 
